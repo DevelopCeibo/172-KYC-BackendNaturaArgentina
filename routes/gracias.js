@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename)
 
 const TYrouter = express.Router()
 
-const URL = `https://${process.env.SUBDOMAIN}.rest.marketingcloudapis.com/hub/v1/dataevents/key:${process.env.DATA_EXTENSION_KEY_EDC_VR}/rowset`
+const URL = `https://${process.env.SUBDOMAIN}.rest.marketingcloudapis.com/hub/v1/dataevents/key:${process.env.DATA_EXTENSION_KEY_GRACIAS}/rowset`
 
 TYrouter.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "/gracias.html"))
@@ -19,13 +19,7 @@ TYrouter.get("/", (req, res) => {
 TYrouter.post("/", async (req, res) => {
   const {
     email,
-    nombre,
-    apellido,
-    fecha,
-    check1,
-    check2,
-    utm_medium,
-    utm_source,
+    comentario,
   } = req.body
 
   let todayDate = new Date().toISOString().slice(0, 10)
@@ -37,15 +31,7 @@ TYrouter.post("/", async (req, res) => {
       },
       values: {
         EMAIL: email,
-        PERSON_NAME: nombre,
-        PERSON_SURNAME: apellido,
-        FECHA_NACIMIENTO: fecha,
-        "OK PROMOCIONES": check1,
-        "OK MAYOR EDAD": check2,
-        EMAIL: email,
-        UTM_MEDIUM: utm_medium,
-        UTM_SOURCE: utm_source,
-        FECHA_REGISTRO: todayDate,
+        COMENTARIO: comentario,
       },
     },
   ]
