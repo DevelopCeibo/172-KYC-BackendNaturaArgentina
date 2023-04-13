@@ -21,6 +21,7 @@ TYrouter.post("/", async (req, res) => {
     email,
     comentario,
     pais,
+    experiencia,
   } = req.body
 
   let todayDate = new Date().toISOString().slice(0, 10)
@@ -34,6 +35,7 @@ TYrouter.post("/", async (req, res) => {
         EMAIL: email,
         COMENTARIO: comentario,
         PAIS: "Argentina",
+        EXPERIENCIA: experiencia,
       },
     },
   ]
